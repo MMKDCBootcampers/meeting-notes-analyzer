@@ -13,35 +13,35 @@ router.get("/test", (req, res) => {
 });
 
 // function for user to favorite a game
-async function addGameToUser(userId, gameId) {
-  try {
-    let currentUser = await User.findById(userId);
+// async function addGameToUser(userId, gameId) {
+//   try {
+//     let currentUser = await User.findById(userId);
 
-    let userGame = await Videogame.find({
-      id: gameId,
-    });
+//     let userGame = await Videogame.find({
+//       id: gameId,
+//     });
 
-    currentUser.games.push(userGame);
-    await currentUser.save();
-    console.log(currentUser.games);
-  } catch (error) {
-    console.log(error);
-  }
-}
+//     currentUser.games.push(userGame);
+//     await currentUser.save();
+//     console.log(currentUser.games);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
 
-router.post("/favorite", function (req, res) {
-  const id = req.body.id;
-  const userId = req.body.userId;
-  try {
-    addGameToUser(userId, id);
-    res.status(200).json({});
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({
-      message: "There was an error. Please try again.",
-    });
-  }
-});
+// router.post("/favorite", function (req, res) {
+//   const id = req.body.id;
+//   const userId = req.body.userId;
+//   try {
+//     addGameToUser(userId, id);
+//     res.status(200).json({});
+//   } catch (error) {
+//     console.log(error);
+//     res.status(500).json({
+//       message: "There was an error. Please try again.",
+//     });
+//   }
+// });
 
 router.post("/signup", async (req, res) => {
   // POST - adding the new user to the database

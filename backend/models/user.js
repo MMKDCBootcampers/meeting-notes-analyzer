@@ -7,16 +7,16 @@ const userSchema = new Schema({
   password: { type: String, required: true },
   timesLoggedIn: { type: Number, default: 0 },
   date: { type: Date, default: new Date() },
-  reviews: [
+  meetings: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Review",
+      ref: "Transcript",
     },
   ],
-  likedGames: [
+  wordbanks: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Videogame",
+      ref: "Wordbank",
     },
   ],
 });
