@@ -8,6 +8,7 @@ if (process.env.NODE_ENV === "production") {
   connectionString = process.env.DB_URL;
 } else {
   connectionString = process.env.MONGO_URI;
+  console.log("DB connection port:", process.env.MONGO_URI);
 }
 
 mongoose.connect(connectionString, {
@@ -23,7 +24,6 @@ db.once("open", () => {
 
 db.on("error", (error) => {
   console.log("Database error", error);
-  console.log("Could not conect to database!");
 });
 
 // Import models here
