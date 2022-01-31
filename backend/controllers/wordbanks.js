@@ -16,7 +16,7 @@ router.get("/test", (req, res) => {
 router.post("/new", async function (req, res) {
   const userId = req.body.userId;
   let words = req.body.words;
-  const addWordbank = await Wordbank.create({ userId: id, words });
+  const addWordbank = await Wordbank.create({ userId, words });
   res.json({ message: "New wordbank added!" });
 });
 
@@ -24,6 +24,7 @@ router.post("/new", async function (req, res) {
 router.get("/list", async (req, res) => {
   try {
     const userId = req.body.userId;
+    console.log("userId", userId);
     let wordbanks = await Wordbank.find({ userId });
     res.json({ wordbanks: wordbanks });
   } catch (error) {
