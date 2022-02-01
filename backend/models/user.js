@@ -13,12 +13,9 @@ const userSchema = new Schema({
       ref: "Transcript",
     },
   ],
-  wordbanks: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Wordbank",
-    },
-  ],
+  wordbanks: {
+    type: Array,
+  },
 });
 
 const User = mongoose.model("User", userSchema);
