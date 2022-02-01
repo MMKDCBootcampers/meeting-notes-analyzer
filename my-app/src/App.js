@@ -1,18 +1,12 @@
+// import Meetings from './pages/meetings/meetings.page';
+// import Wordbank from './pages/wordbank/wordbank.page';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <Meetings /> */}
+      {/* <Wordbank /> */}
     </div>
   );
 }
