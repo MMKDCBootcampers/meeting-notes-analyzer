@@ -3,7 +3,8 @@ const { Schema } = mongoose;
 
 const transcriptSchema = new Schema({
   userId: { type: String, required: true },
-  text: { type: Array, required: true },
+  conversationId: { type: String, required: false },
+  text: { type: Array, required: false },
   description: { type: String, required: false },
   speakers: { type: Array, required: false },
   audio: { type: Audio, required: false },

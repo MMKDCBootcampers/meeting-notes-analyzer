@@ -38,8 +38,8 @@ router.get("/list", async (req, res) => {
   try {
     const userId = req.body.userId;
     console.log("userId", userId);
-    let wordbanks = await User.find({ userId }, "wordbanks");
-    res.json({ data: wordbanks });
+    let wordbank = await User.find({ userId }, "wordbanks");
+    res.json({ data: wordbank });
   } catch (error) {
     console.log(error);
     res.status(500).json({
@@ -48,10 +48,16 @@ router.get("/list", async (req, res) => {
   }
 });
 
-router.delete("/delete", async (req, res) => {
+router.post("/delete", async (req, res) => {
   try {
     const index = req.body.index;
     const userId = req.body.userId;
+    let user = await User.findOne({ userId }, "wordbanks");
+    let updatedWords = user.wordbanks;
+    updatedWords.splice(index, 1);
+    user.wordbanks = updatedWords;
+    user.save();
+    res.json({ message: "Deleted word" });
   } catch (error) {
     console.log(error);
     res.status(500).json({
