@@ -45,32 +45,8 @@ router.post(
   }
 );
 
-// // add a new transcript
-// router.post(
-//     "/new",
-//     passport.authenticate("jwt", { session: false }),
-//     async function (req, res) {
-//       try {
-//         const user = await User.findOne({ email: req.body.email });
-//         const transcript = await Transcript.create({
-//           userId: "test",
-//           conversationId: req.body.conversationId,
-//           description: req.body.description,
-//         });
-//         user.transcripts.push(transcript);
-//         user.save();
-//         res.json({ message: "New transcript added!" });
-//       } catch (error) {
-//         console.log(error);
-//         res.status(500).json({
-//           message: "There was an error. Please try again.",
-//         });
-//       }
-//     }
-//   );
-
 // list all transcripts
-// must provide userId in api call
+// uses email in api call to find all transcripts associated with that email
 router.get(
   "/list",
   passport.authenticate("jwt", { session: false }),
@@ -88,17 +64,37 @@ router.get(
   }
 );
 
+router.get(
+  "/find",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res) => {
+    try {
+      const conversationId = req.body.conversationId;
+      const user = await User.findOne({ email: req.body.email });
+      const transcript = await Transcript.findOne({ conversationId });
+      res.json({ data: transcript });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({
+        message: "There was an error. Please try again.",
+      });
+    }
+  }
+);
+
 // works, deletes word at given index
 router.post("/delete", async (req, res) => {
   try {
-    const index = req.body.index;
-    const userId = req.body.userId;
-    let user = await User.findOne({ userId }, "wordbanks");
-    let updatedWords = user.wordbanks;
-    updatedWords.splice(index, 1);
-    user.wordbanks = updatedWords;
-    user.save();
-    res.json({ message: "Deleted word" });
+    const conversationId = req.body.conversationId;
+    await Transcript.deleteOne({ conversationId })
+      .then(function () {
+        console.log("Transcript deleted");
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    res.json({ message: "Deleted transcript" });
   } catch (error) {
     console.log(error);
     res.status(500).json({

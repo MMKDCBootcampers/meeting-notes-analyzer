@@ -19,7 +19,7 @@ const transcript = require("./controllers/transcripts");
 
 app.get("/", (req, res) => {
   res.json({
-    name: "Jargon",
+    name: "Deciphr",
     message: "Be Understood",
   });
 });

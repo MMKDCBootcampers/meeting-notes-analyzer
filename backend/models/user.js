@@ -7,7 +7,7 @@ const userSchema = new Schema({
   password: { type: String, required: true },
   timesLoggedIn: { type: Number, default: 0 },
   date: { type: Date, default: new Date() },
-  meetings: [
+  transcripts: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Transcript",
