@@ -28,9 +28,11 @@ db.on("error", (error) => {
 // Import models here
 const User = require("./user");
 const Wordbank = require("./wordbank");
+const Transcript = require("./transcript");
 
 module.exports = {
   // model goes here
   User,
   Wordbank,
+  Transcript,
 };
