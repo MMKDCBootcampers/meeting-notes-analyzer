@@ -7,7 +7,7 @@ const transcriptSchema = new Schema({
   text: { type: Array, required: false },
   description: { type: String, required: false },
   speakers: { type: Array, required: false },
-  audio: { type: Audio, required: false },
+  // audio: { type: Audio, required: false }, // storing the audio is a stretch goal
   date: { type: Date, default: new Date() },
 });
 
