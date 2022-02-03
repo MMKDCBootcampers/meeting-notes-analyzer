@@ -1,14 +1,13 @@
-// import Meetings from './pages/meetings/meetings.page';
-// import Wordbank from './pages/wordbank/wordbank.page';
+import Dashboard from './components/dashboard/dashboard.jsx';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      {/* <Meetings /> */}
-      {/* <Wordbank /> */}
+      <Dashboard />
     </div>
   );
 }
 
 export default App;
+
