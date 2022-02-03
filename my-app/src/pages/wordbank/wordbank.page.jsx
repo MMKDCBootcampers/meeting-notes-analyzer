@@ -1,8 +1,11 @@
 import { Container } from '@mui/material';
 import { Edit, Delete } from '@mui/icons-material';
+import React, {useState, useEffect} from "react"
 
 import { PageHeader } from '../../components/page-header/page-header.component';
 import { CustomTable } from '../../components/custom-table/custom-table.component';
+import axios from 'axios';
+import qs from 'qs'
 
 const menuItems = ['menu item 1', 'menu item 2', 'menu item 3'];
 
@@ -25,6 +28,29 @@ const cols = [
 ];
 
 const Wordbank = () => {
+  const [wordbankData, setWordbank] = useState([]);
+  
+  
+  //grab game data from ID
+  useEffect(() => {
+  var config = {
+    method: 'get',
+    url: 'http://127.0.0.1:8000/wordbanks/list?email=cal1296@yahoo.com',
+    headers: { 
+      'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZjVmM2I0NjQ4YzU4M2NhZWFkMzBmZSIsImVtYWlsIjoiY2FsMTI5NkB5YWhvby5jb20iLCJuYW1lIjoiQ2FsIENsZW1tZXIiLCJpYXQiOjE2NDM3NTIzNDAsImV4cCI6MTY0Mzc1NTk0MH0.FSRP3EVxpfBWZvkYm7budva1sPAFi48epwtYfBWvzXc'
+    }
+  };
+    // axios.defaults.baseURL = process.env.REACT_APP_SERVER_URL;
+    axios(config).then((response) => {
+      setWordbank(response.data.data.wordbanks);
+        // console.log("Testing data", response.data.data.wordbanks);
+        // console.log('wordbankData', wordbankData)
+    });
+  }, []);
+
+  cols[0] = wordbankData[0]
+  console.log('wordbankData', wordbankData)
+
   return (
     <Container>
       <PageHeader menuItems={menuItems} />

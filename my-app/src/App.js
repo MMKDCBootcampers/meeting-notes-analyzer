@@ -1,5 +1,5 @@
-import Dashboard from './components/dashboard/dashboard.jsx';
-import './App.css';
+import Dashboard from "./components/dashboard/dashboard.jsx";
+import "./App.css";
 
 function App() {
   return (
@@ -10,4 +10,3 @@ function App() {
 }
 
 export default App;
-
