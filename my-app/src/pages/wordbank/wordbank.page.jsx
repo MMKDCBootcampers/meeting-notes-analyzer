@@ -31,7 +31,7 @@ const Wordbank = () => {
   const [wordbankData, setWordbank] = useState([]);
   
   
-  //grab game data from ID
+  //grab data
   useEffect(() => {
   var config = {
     method: 'get',
