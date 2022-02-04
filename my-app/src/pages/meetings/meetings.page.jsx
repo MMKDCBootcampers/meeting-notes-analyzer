@@ -30,27 +30,19 @@ const headers = [
   'Uploaded',
   'Delete',
 ];
-const rows = new Array(10).fill(
-  createData(
-    'Meeting Name',
-    '/recording',
-    '/transcript',
-    '/insights',
-    '/uploaded',
-    'handle del'
-  )
-);
+const cols = 0
 
-const cols = [
+const rows = [[
   'Meeting Name',
   <PlayArrow />,
   <DocumentScanner />,
   <GraphicEq />,
   `Uploaded ${Math.floor(Math.random() * 60)} seconds ago`,
   <Delete />,
-];
+]];
 
 const Meetings = () => {
+  
   return (
     <Container>
       <PageHeader menuItems={menuItems} />
