@@ -1,7 +1,7 @@
 // Imports
 import React, { useState } from "react";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
 const { REACT_APP_SERVER_URL } = process.env;
 
 const Signup = () => {
@@ -9,7 +9,7 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [redirect, setRedirect] = useState(false);
+  // const [redirect, setRedirect] = useState(false);
 
   const handleName = (e) => {
     setName(e.target.value);
@@ -38,7 +38,7 @@ const Signup = () => {
         .then((response) => {
           console.log("===> Yay, new user");
           console.log(response);
-          setRedirect(true);
+          // setRedirect(true);
         })
         .catch((error) => console.log("===> Error in Signup", error));
     } else {
@@ -47,7 +47,7 @@ const Signup = () => {
     }
   };
 
-  if (redirect) return <Redirect to="/login" />; // You can have them redirected to profile (your choice)
+  // if (redirect) return <Redirect to="/login" />; // You can have them redirected to profile (your choice)
 
   return (
     <div className="row mt-4">
