@@ -39,7 +39,10 @@ router.post("/new", async function (req, res) {
 // must provide email in api call
 router.get("/list", async (req, res) => {
   try {
-    const wordbank = await User.findOne({ email: req.body.email }, "wordbanks");
+    const wordbank = await User.findOne(
+      { email: req.query.email },
+      "wordbanks"
+    );
     res.json({ data: wordbank });
   } catch (error) {
     console.log(error);

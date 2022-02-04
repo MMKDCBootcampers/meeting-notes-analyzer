@@ -49,10 +49,10 @@ router.post(
 // uses email in api call to find all transcripts associated with that email
 router.get(
   "/list",
-  passport.authenticate("jwt", { session: false }),
+  // passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     try {
-      const user = await User.findOne({ email: req.body.email });
+      const user = await User.findOne({ email: req.query.email });
       const transcripts = await Transcript.find({ userId: user._id });
       res.json({ data: transcripts });
     } catch (error) {
