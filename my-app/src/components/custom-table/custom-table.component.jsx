@@ -10,7 +10,7 @@ import {
 
 export const CustomTable = ({ headers, rows, cols }) => {
   return (
-      
+
       <Container>
         <Table>
           <TableHead>
@@ -22,7 +22,7 @@ export const CustomTable = ({ headers, rows, cols }) => {
           </TableHead>
           <TableBody>
             {rows.map((row, idx) => (
-              
+
               <TableRow key={idx}>
                 {row.map((ro, idx) => (<TableCell key={idx}>{ro}</TableCell>))}
                     {/* <TableCell key={0}>{row[0]}</TableCell>
@@ -37,7 +37,7 @@ export const CustomTable = ({ headers, rows, cols }) => {
       </Container>
     );
   };
-  
+
 
 // export const CustomTable = ({ headers, rows, cols }) => {
 //   return (
