@@ -211,10 +211,10 @@ const Insights = () => {
 
   //TODO: Pass in conversationId from AuthContext to API request
   useEffect(() => {
-      // Meeting Info
-      // Transcript Info
-      // Attendee Info
-      // Analytics Info
+      // Meeting Info - CONVERSATION DATA API
+      // Transcript Info - MESSAGES (TRANSCRIPT) API
+      // Attendee Info - Might be able to grab from CONVERSATION DATA API, but if not use MEMBERS (PARTICIPANTS/ATTENDEES) API
+      // Analytics Info - ANALYTICS API
   }, []);
 
   return (
