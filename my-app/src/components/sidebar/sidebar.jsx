@@ -53,6 +53,23 @@ const Sidebar = () => {
       <br />
       <br />
 
+      <Grid item id='Insights' xs={12}>
+        <Link to="/insights">
+        <Button
+          variant='text'
+          color="inherit"
+          startIcon={<GroupsIcon sx={{ fontSize: 90 }} />}
+          sx= {{fontSize: '30px'}}
+          >
+          Insights
+          </Button>
+      </Link>
+      </Grid>
+
+      <br />
+      <br />
+      <br />
+
       <Grid item id='WordBankLink' xs={12}>
       <Link to="/wordbank">
       <Button

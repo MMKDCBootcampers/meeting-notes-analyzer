@@ -8,7 +8,7 @@ import {
   TextField,
 } from '@mui/material';
 
-export const PageHeader = ({ menuItems }) => {
+export const PageHeader = ({ title, menuItems }) => {
   const [anchorEl, setAnchorEl] = useState();
   const open = Boolean(anchorEl);
 
@@ -23,7 +23,7 @@ export const PageHeader = ({ menuItems }) => {
   return (
     <Container>
       <Typography variant="h3">
-        Meetings
+        {title}
         <Button onClick={handleClick}>Upload new</Button>
         <TextField />
       </Typography>
