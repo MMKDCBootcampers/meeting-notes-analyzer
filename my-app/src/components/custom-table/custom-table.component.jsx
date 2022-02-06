@@ -49,8 +49,9 @@ export const CustomTable = ({ headers, rows, cols, icons }) => {
                   <TableCell>{word.meaning}</TableCell>
                   <TableCell>{word.pronunciation}</TableCell>
                   <TableCell>{word.added}</TableCell>
-                  <TableCell>{icons.edit}</TableCell>
-                  <TableCell>{icons.delete}</TableCell>
+                  <TableCell>
+                    {icons.edit} {icons.delete}
+                  </TableCell>
                 </TableRow>
               ))
             : null}

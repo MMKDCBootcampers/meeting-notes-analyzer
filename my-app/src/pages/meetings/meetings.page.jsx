@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container } from '@mui/material';
-import {
-  PlayArrow,
-  DocumentScanner,
-  GraphicEq,
-  Delete,
-} from '@mui/icons-material';
+import { PlayArrow, Article, ShowChart, Delete } from '@mui/icons-material';
+
 
 import axios from 'axios';
 import { getMeetingsData } from '../../utils/api.utils';
@@ -24,8 +20,8 @@ const headers = [
 ];
 const icons = {
   recording: <PlayArrow />,
-  transcript: <DocumentScanner />,
-  insights: <GraphicEq />,
+  transcript: <Article />,
+  insights: <ShowChart />,
   delete: <Delete />,
 };
 const cols = 0;
