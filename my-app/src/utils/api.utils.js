@@ -39,8 +39,8 @@ export const getWordbankData = async () => {
 };
 
 /**
-* api calls - wip
-**/
+ * api calls - wip
+ **/
 const getSecret = async () => {
   const config = {
     method: 'post',
@@ -57,8 +57,8 @@ const getSecret = async () => {
     const data = await response.data;
 
     if (data) {
-      SYMBL_BEARER_TOKEN = data.accessToken;
-      console.log('~ data', data.accessToken);
+      // SYMBL_BEARER_TOKEN = data.accessToken;
+      // console.log('~ data', data.accessToken);
     }
   } catch (error) {
     console.log('~ error', error);
@@ -72,7 +72,6 @@ export const postAudio = async file => {
     headers: {
       Authorization: `Bearer ${SYMBL_BEARER_TOKEN}`,
       'Content-Type': 'audio/mpeg',
-      // 'Content-Type': 'audio',
     },
     data: file,
   };
@@ -80,7 +79,7 @@ export const postAudio = async file => {
   try {
     const response = await axios(config);
     const data = await response.data;
-    
+
     return data;
   } catch (error) {
     console.log('~ error', error);
@@ -104,7 +103,6 @@ const postVideoURL = async videoURL => {
       'Content-Type': 'application/json',
     },
     data: payload,
-    // data: JSON.stringify(payload),
   };
 
   try {
@@ -118,11 +116,7 @@ const postVideoURL = async videoURL => {
 };
 
 export const getSpeechToText = async videoURL => {
-  // const { conversationId } = await processAudio(
-  //   '/Users/dav/CODING/hackathons/developer-week-2022'
-  // );
   const { conversationId } = await postVideoURL(videoURL);
-  // console.log('~ conversationId', conversationId);
   const config = {
     headers: {
       Authorization: `Bearer ${SYMBL_BEARER_TOKEN}`,
@@ -136,4 +130,23 @@ export const getSpeechToText = async videoURL => {
   const { data } = await response;
 
   return data;
+};
+
+export const getJobStatus = async jobId => {
+  const config = {
+    method: 'get',
+    url: `https://api.symbl.ai/v1/job/${jobId}`,
+    headers: {
+      Authorization: `Bearer ${SYMBL_BEARER_TOKEN}`,
+    },
+  };
+
+  try {
+    const response = await axios(config);
+    const data = await response.data;
+
+    return data;
+  } catch (error) {
+    console.log('~ error', error);
+  }
 };
