@@ -1,6 +1,7 @@
 import React from "react";
 import { useField, useValidation } from "usetheform";
 import { DropzoneArea } from "material-ui-dropzone";
+import { Grid } from '@mui/material';
 
 const required = (value) => (value ? undefined : "Attachments Required");
 export const MaterialuiDropzone = () => {
@@ -21,9 +22,29 @@ export const MaterialuiDropzone = () => {
   };
 
   return (
-    <div>
+    <Grid>
       <DropzoneArea onChange={handleChange} />
       {status.error && <span className="Error">{status.error}</span>}
-    </div>
+    </Grid>
   );
 };
+
+// import { createStyles, makeStyles } from '@material-ui/core/styles';
+
+// const useStyles = makeStyles(theme => createStyles({
+//   previewChip: {
+//     minWidth: 160,
+//     maxWidth: 210
+//   },
+// }));
+
+// const classes = useStyles();
+
+// <DropzoneArea
+//   showPreviews={true}
+//   showPreviewsInDropzone={false}
+//   useChipsForPreview
+//   previewGridProps={{container: { spacing: 1, direction: 'row' }}}
+//   previewChipProps={{classes: { root: classes.previewChip } }}
+//   previewText="Selected files"
+// />
