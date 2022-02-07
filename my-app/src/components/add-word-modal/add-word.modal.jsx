@@ -50,7 +50,7 @@ export const AddWordModal = ({ open, handleClose }) => {
       id: 'description',
       label: 'Description',
       required: true,
-      helperText: '0/500',
+      helperText: `${formState.description.length}/500`,
     },
     {
       id: 'pronunciation',
