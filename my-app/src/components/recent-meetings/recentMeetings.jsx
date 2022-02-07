@@ -16,7 +16,7 @@ const RecentMeetings = () => {
       {
         dummyMeetings.map((elem,i) => {
           return (
-            <Grid item xs={12} sx={{padding: '10px'}}>
+            <Grid item xs={12} sx={{padding: '10px'}} key={i}>
               <Link to="/insights">
                 <Typography variant="h5">
                   {elem.description}

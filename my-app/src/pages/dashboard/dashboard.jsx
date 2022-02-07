@@ -4,11 +4,22 @@ import { MaterialuiDropzone } from '../../components/dropzone/dropzone.jsx';
 import Grid from '@mui/material/Grid';
 import RecentWords from '../../components/recent-words/recentWords.jsx';
 import RecentMeetings from '../../components/recent-meetings/recentMeetings.jsx';
+import { postAudio } from '../../utils/api.utils';
 
-const handleSubmit = (state) => {
+const handleSubmit = async (state) => {
   // TODO: Write axios request here to the backend to submit audio file
 
   //TODO: Redirect to Insights page once you're returned conversationId from saved database
+
+  const file = await state.materialuiDropzone[0];
+  console.log('~ file', file)
+  const data = await postAudio(file);
+  console.log('~ data', data);
+
+  // const speechResponse = await getSpeechToText(
+  //   'https://symbltestdata.s3.us-east-2.amazonaws.com/sample_video_file.mp4'
+  // );
+  // console.log('~ speechResponse', speechResponse);
 }
 
 function Dashboard(props) {

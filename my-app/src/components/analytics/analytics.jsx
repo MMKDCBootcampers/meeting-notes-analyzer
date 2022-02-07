@@ -15,8 +15,8 @@ const Analytics = ({data}) => {
       {
         data.members.map((elem, i) => {
           return (
-            <Grid container xs={12} key={i}>
-              <Grid item xs={12} key={i}>
+            <Grid container key={`transcript ${i}`}>
+              <Grid item xs={12} key={`transcript name ${i}`}>
                 <Typography variant="h5">
                   {elem.name}
                 </Typography>
@@ -24,22 +24,22 @@ const Analytics = ({data}) => {
                   {' '}
                 </Typography>
               </Grid>
-              <Grid item xs={6} key={i}>
+              <Grid item xs={6} key={`wpm ${i}`}>
                 <Typography variant="body1">
                   WPM
                 </Typography>
               </Grid>
-              <Grid item xs={6} key={i}>
+              <Grid item xs={6} key={`pace ${i}`}>
                 <Typography variant="body1">
                   {elem.pace.wpm}
                 </Typography>
               </Grid>
-              <Grid item xs={6} key={i}>
+              <Grid item xs={6} key={`talk time ${i}`}>
                 <Typography variant="body1">
                   Talk Time %
                 </Typography>
               </Grid>
-              <Grid item xs={6} key={i}>
+              <Grid item xs={6} key={`talk percentage ${i}`}>
                 <Typography variant="body1">
                   {elem.talkTime.percentage}
                 </Typography>

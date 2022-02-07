@@ -14,16 +14,16 @@ const Transcript = ({data}) => {
       {
         data.messages.map((elem, i) => {
           return (
-            <Grid item xs={12} key={i}
+            <Grid item xs={12} key={`message ${i}`}
             sx={{padding: '5px', backgroundColor: '#FFF' }}
             >
-            <Grid item xs={12} key={i}>
+            <Grid item xs={12} key={`from ${i}`}>
               {
                 elem.from.length > 0 ? <Typography variant="h5" sx={{ fontWeight: 'bold' }}>{elem.from}{':'}</Typography> : <Typography variant="h5" sx={{ fontWeight: 'bold' }}>UNKNOWN{':'}</Typography>
               }
             </Grid>
 
-            <Grid item xs={12} key={i}>
+            <Grid item xs={12} key={`text ${i}`}>
               <Typography variant="h5">{elem.text}</Typography>
             </Grid>
             <br />

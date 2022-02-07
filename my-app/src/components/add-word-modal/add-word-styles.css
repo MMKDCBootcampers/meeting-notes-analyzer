@@ -1,0 +1,36 @@
+h4.MuiTypography-root {
+  margin-bottom: 0.5em;
+}
+
+.modal-box {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  width: 30%;
+  background-color: #ccc;
+  border-radius: 1px solid none;
+  border-radius: 0.5em;
+  padding: 2em;
+}
+
+.modal-box h1 {
+  margin-top: 0;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.add-word-form {
+  padding: 2em;
+  background-color: #eee;
+  border-radius: 0.5em;
+}
+
+.MuiFormControl-root.MuiTextField-root {
+  margin: 1em 0 2em;
+}

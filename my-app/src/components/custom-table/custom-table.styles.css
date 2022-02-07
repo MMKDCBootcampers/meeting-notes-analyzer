@@ -1,0 +1,12 @@
+.table a {
+  color: black;
+  text-decoration: none;
+}
+
+.table a:hover {
+  cursor: pointer;
+}
+
+.table-row:hover {
+  background-color: lightgray;
+}
