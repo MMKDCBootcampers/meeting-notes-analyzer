@@ -36,7 +36,6 @@ const Insights = () => {
     <Grid
       container
       id="insightsContainer"
-      xs={12}
       justifyContent="center"
       sx={{ padding: '20px' }}
       spacing={2}

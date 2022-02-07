@@ -3,15 +3,17 @@ import {
   Table,
   TableBody,
   TableCell,
-  TableContainer,
   TableHead,
   TableRow,
+  Link,
 } from '@mui/material';
+
+import './custom-table.styles.css';
 
 export const CustomTable = ({ headers, rows, cols, icons }) => {
   return (
     <Container>
-      <Table>
+      <Table className="table">
         <TableHead>
           <TableRow>
             {headers.map((header, idx) => (
@@ -32,25 +34,39 @@ export const CustomTable = ({ headers, rows, cols, icons }) => {
               </TableRow>
             ))} */}
           {'meetings' in rows
-            ? rows.meetings.map(meeting => (
-                <TableRow key={meeting.id}>
-                  <TableCell>{meeting.name}</TableCell>
-                  <TableCell>{icons.recording}</TableCell>
-                  <TableCell>{icons.transcript}</TableCell>
-                  <TableCell>{icons.insights}</TableCell>
+            ? rows.meetings.map((meeting, i) => (
+                // ? rows.meetings.map(meeting => (
+                // <TableRow key={meeting.id} className="table-row">
+                <TableRow key={i} className="table-row">
+                  <TableCell>
+                    <Link>{meeting.name}</Link>
+                  </TableCell>
+                  <TableCell>
+                    <Link>{icons.recording}</Link>
+                  </TableCell>
+                  <TableCell>
+                    <Link>{icons.transcript}</Link>
+                  </TableCell>
+                  <TableCell>
+                    <Link>{icons.insights}</Link>
+                  </TableCell>
                   <TableCell>upload time</TableCell>
-                  <TableCell>{icons.delete}</TableCell>
+                  <TableCell>
+                    <Link>{icons.delete}</Link>
+                  </TableCell>
                 </TableRow>
               ))
             : 'wordbank' in rows
-            ? rows.wordbank.map(word => (
-                <TableRow key={word.term}>
+            ? rows.wordbank.map((word, i) => (
+                // ? rows.wordbank.map(word => (
+                // <TableRow key={word.term} className="table-row">
+                <TableRow key={i} className="table-row">
                   <TableCell>{word.term}</TableCell>
                   <TableCell>{word.meaning}</TableCell>
                   <TableCell>{word.pronunciation}</TableCell>
                   <TableCell>{word.added}</TableCell>
                   <TableCell>
-                    {icons.edit} {icons.delete}
+                    <Link>{icons.edit}</Link> <Link>{icons.delete}</Link>
                   </TableCell>
                 </TableRow>
               ))

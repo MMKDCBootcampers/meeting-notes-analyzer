@@ -66,7 +66,7 @@ const Wordbank = () => {
 
   return (
     <Container>
-      <PageHeader title="Wordbank" menuItems={menuItems} />
+      <PageHeader title="Wordbank" buttonLabel='Add new' menuItems={null} />
       <CustomTable
         headers={headers}
         rows={wordbankData}

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Container } from '@mui/material';
 import { PlayArrow, Article, ShowChart, Delete } from '@mui/icons-material';
 
-
 import axios from 'axios';
 import { getMeetingsData } from '../../utils/api.utils';
 
@@ -74,7 +73,7 @@ const Meetings = () => {
 
   return (
     <Container>
-      <PageHeader title="Meetings" menuItems={menuItems} />
+      <PageHeader title="Meetings" buttonLabel='Upload new' menuItems={menuItems} />
       <CustomTable
         headers={headers}
         rows={meetingsData}
