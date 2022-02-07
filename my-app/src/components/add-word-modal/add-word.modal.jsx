@@ -25,7 +25,6 @@ export const AddWordModal = ({ open, handleClose }) => {
   const [status, validation] = useValidation(validations);
 
   const handleChange = event => {
-    console.log('~ event', event.target.id);
     setFormState(formState => ({
       ...formState,
       [event.target.id]: event.target.value,
