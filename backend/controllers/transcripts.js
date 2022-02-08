@@ -82,7 +82,6 @@ router.get(
   }
 );
 
-// works, deletes word at given index
 router.post("/delete", async (req, res) => {
   try {
     const conversationId = req.body.conversationId;
